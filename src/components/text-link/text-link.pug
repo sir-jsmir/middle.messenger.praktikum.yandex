@@ -1,0 +1,6 @@
+include ../link/link
+
+mixin text-link(text, link, title)
+    .text-link
+        .text-link_style= text
+        +link(title,link, "text-link_input")

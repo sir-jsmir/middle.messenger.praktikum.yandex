@@ -5,8 +5,10 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.pug --out-dir dist --no-cache --open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel ./src/index.pug --out-dir dist --no-cache",
+    "dev2": "parcel dev --parallel watch start",
+    "build": "parcel build ./src/index.pug  --no-minify",
+    "start": "parcel build ./src/index.pug --no-minify && node server.js "
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,15 @@
+.link {
+    padding: 9px;
+    cursor: pointer;
+    border: 1px solid #8f95a1;
+    border-radius: 4px;
+    color: #2e2e2e;
+    text-decoration: none;
+    font-family: $font-family-text;
+    margin: 10px;
+
+    &:hover {
+        background-color: #f3f5f7;
+        box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
+    }
+}

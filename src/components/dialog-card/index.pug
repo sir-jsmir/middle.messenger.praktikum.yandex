@@ -1,0 +1,11 @@
+include ../avatar/avatar
+
+mixin dialog-card(img, name, message, time, status, notifications, active)
+    li.div(class=`chat-item ${active ? 'chat-item_is-active' : ''}`)
+        +avatar(img)
+        .chat-item__name= name
+        .chat-item__message= message
+        .chat-item__time= time
+        .chat-item__status
+            div(class=`status-message is-${status}`) 
+        .chat-item__notifications 

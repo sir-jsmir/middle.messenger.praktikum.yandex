@@ -1,36 +1,13 @@
-extends  ./layout/index.pug
+extends  ./layout/main/_index
 
 block content
-  .sidebar
-    header 
-      .app-bar setting panel
-      .profile-avatar avatar
-      .profile-name name - John Les
-      form.search-form search
-        input.search-form__input(type="text")
-        button.search-form__button Найти
-    nav
-      ul.chat-list Chat list
-        li.chat-item chat-item1
-          .chat-item__avatar avatar
-          .chat-item__name name
-          .chat-item__message message
-          .chat-item__time time
-          .chat-item__status Readed 
-          .chat-item__notifications 2
-        li.chat-item chat-item2
-        li.chat-item chat-item3
-        li.chat-item chat-item4
-  main.content
-    .msg Chat msg
-      section.msg-item message 1
-        .msg-item__avatar Avatar
-        .msg-item__message Message
-        .msg-item__time Time
-        .msg-item__status Статус сообщения
-        .msg-item__menu Выпадающее меню сообщения
-      section.msg-item message 2
-      section.msg-item message 3
-      section.msg-item message 4
+    a(href="pages/home/index.pug") 
+    a(href="pages/profile/index.pug")
+    a(href="pages/signUp/index.pug")
+    a(href="pages/404-page/index.pug")
+    a(href="pages/500-page/index.pug")
+    .start
+        a(href="pages/signIn/index.pug") Вход
+    script(src='./index.js')
 
 

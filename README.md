@@ -1,5 +1,5 @@
 ## Pull request
-https://github.com/sir-jsmir/middle.messenger.praktikum.yandex/pull/1
+Ссылка на pull request: https://github.com/sir-jsmir/middle.messenger.praktikum.yandex/pull/1
 
 ## Figma
 https://www.figma.com/file/PbkHchYQJeg6BJoJJmR2mr/Untitled?node-id=50%3A2

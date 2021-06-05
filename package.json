@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "parcel ./src/index.pug --out-dir dist --no-cache",
     "build": "parcel build ./src/index.pug  --no-minify",
-    "start": "parcel build ./src/index.pug --no-minify && node server.js "
+    "start": "parcel build ./src/index.pug --no-minify && node ./server.js "
   },
   "repository": {
     "type": "git",

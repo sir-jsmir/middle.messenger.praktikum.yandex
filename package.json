@@ -2,7 +2,6 @@
   "name": "middle_messenger_praktikum_yandex",
   "version": "1.0.0",
   "description": "---",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.pug --out-dir dist --no-cache",

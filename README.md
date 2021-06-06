@@ -4,6 +4,9 @@
 ## Figma
 https://www.figma.com/file/PbkHchYQJeg6BJoJJmR2mr/Untitled?node-id=50%3A2
 
+## Netlify
+https://sleepy-shaw-e2e55f.netlify.app/pages/signin/
+
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
 
 ### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. Название pull request может быть любое.

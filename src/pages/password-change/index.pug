@@ -1,0 +1,20 @@
+extends  ../../layout/main/_index
+include ../../components/profile/profile
+include ../../components/input/input
+include ../../components/button/button
+include ../../components/link/link
+include ../../components/text-link/text-link
+
+block content
+    +profile("John Les", "../../../static/img/avatar_1.jpg")
+    main.content
+        form.form
+            +input("password", "oldPassword", _, "Пароль")
+            +input("password", "newPassword", "", "Повторить пароль")
+            .group-elements
+                +link("Назад", "../profile/index.pug")
+                +button("Сохранить изменения", "submit")
+        footer
+        script(src='./index.js')
+
+

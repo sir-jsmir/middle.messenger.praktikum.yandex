@@ -1,0 +1,11 @@
+.title-auth {
+    font-size: $font-size-xl;
+    font-family: $font-family-h;
+
+    &__sub {
+        font-family: $font-family-h;
+        font-size: $font-size-md;
+        color: $color-link;
+        text-decoration: underline dotted;
+    }
+}

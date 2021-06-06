@@ -1,0 +1,6 @@
+include ../avatar/avatar
+
+mixin profile(name, srcImg)
+    header 
+        +avatar-profile(srcImg)(class="avatar-profile_margin")
+    .profile-name= name

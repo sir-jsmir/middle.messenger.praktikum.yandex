@@ -1,0 +1,13 @@
+.form-button {
+    padding: 7px;
+    cursor: pointer;
+    border: 1px solid #8f95a1;
+    border-radius: 4px;
+    margin: 10px;
+    font-family: $font-family-text;
+
+    &:hover {
+        background-color: #f3f5f7;
+        box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
+    }
+}

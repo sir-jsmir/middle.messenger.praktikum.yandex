@@ -1,0 +1,7 @@
+mixin avatar(srcImg, margin="right") 
+    div(class=`chat-item__avatar chat-item__avatar_margin-${margin}`)
+        img(src=srcImg)
+
+mixin avatar-profile(srcImg) 
+    .profile-avatar&attributes(attributes)
+        img(src=srcImg)

@@ -1,0 +1,8 @@
+@mixin avatar($width) {
+    img {
+        width: $width;
+        border-radius: 20%;
+        height: $width;
+        object-fit: cover;
+    }
+}

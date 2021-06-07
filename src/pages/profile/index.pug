@@ -1,0 +1,23 @@
+extends  ../../layout/main/_index
+include ../../components/profile/profile
+include ../../components/input/input
+include ../../components/button/button
+include ../../components/link/link
+include ../../components/text-link/text-link
+
+block content
+    +profile("John Les", "../../../static/img/avatar_1.jpg")
+    main.content
+        form.form
+            +input("email", "email", "jogn@mail.ru", "Почта")
+            +input("text", "login", "JohnLes", "Логин")
+            +input("text", "firstName", "John", "Имя")
+            +input("text", "lastName", "Les", "Фамилия")
+            +input("text", "firstNameChat", "John", "Имя в чате")
+            +input("tel", "phone", "8 901 123 45", "Телефон")
+            +text-link("Пароль", "../password-change/index.pug", "Сменить пароль")
+            .group-elements
+                +link("Назад", "../home/index.pug")
+                +button("Сохранить изменения", "submit")
+        footer
+        script(src="./index.js")

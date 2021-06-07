@@ -1,0 +1,19 @@
+@mixin status-message() {
+    .status-message {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    .is-sent {
+        background-color: $msg-sent-color;
+    }
+
+    .is-received {
+        background-color: $msg-sent-color;
+    }
+
+    .is-read {
+        background-color: $msg-sent-color;
+    }

@@ -1,0 +1,13 @@
+extends  ../../layout/main/_index
+include ../../components/profile/profile
+include ../../components/input/input
+include ../../components/button/button
+include ../../components/link/link
+include ../../components/text-link/text-link
+
+block content
+    main.error-page
+        .error-page__title 505
+        .error-page__content Произошло что-то... Тех поддержка в пути
+        a(href="../home/index.pug") Перейти в чат
+        footer

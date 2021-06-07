@@ -1,0 +1,58 @@
+.chat-item {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: $font-family-text;
+    color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "avatar name time"
+        "avatar message status";
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-hover-dialog;
+    }
+
+    &_is-active {
+        box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
+        position: sticky;
+        top: 98px;
+        background-color: $color-active-dialog;
+    }
+
+    &__name {
+        grid-area: name;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: $font-family-h;
+        font-size: 1.1rem;
+    }
+
+    &__message {
+        grid-area: message;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.9rem;
+    }
+
+    &__time {
+        grid-area: time;
+        font-size: 0.8rem;
+    }
+
+    &__status {
+        grid-area: status;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__notifications {
+        grid-area: notifications;
+        display: none;
+    }
+}

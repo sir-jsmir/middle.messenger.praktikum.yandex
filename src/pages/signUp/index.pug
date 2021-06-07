@@ -1,0 +1,24 @@
+extends  ../../layout/main/_index
+include ../../components/input/input
+include ../../components/button/button
+include ../../components/link/link
+include ../../components/text-link/text-link
+include ../../components/title-auth/title-auth
+
+block content
+    header.auth
+        +title-auth("Регистрация", "войти")
+    main.content
+        form.form
+            +input("email", "email", _, "Почта", "Введите почту")
+            +input("text", "login", _, "Логин", "Введите логин")
+            +input("text", "firstName", _, "Имя", "Введите имя")
+            +input("text", "lastName", _, "Фамилия", "Введите фамилию")
+            +input("tel", "phone",_, "Телефон", "Введите телефон")
+            +input("password", "password",  _, "Пароль", "Введите пароль")
+            +input("password", "password2", _, "Повторите пароль", "Введите пароль")
+            .group-elements
+                +button("Зарегистрироваться", "submit")
+            .error
+        footer
+    script(src="./index.js")

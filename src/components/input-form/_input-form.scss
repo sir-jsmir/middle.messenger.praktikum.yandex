@@ -17,7 +17,7 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            font-family: "Open Sans", sans-serif;
+            font-family: $font-family-text;
             outline: none;
             border: none;
         }
@@ -28,7 +28,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        fill: #a8b2b9;
+        fill: $color-fill-icon;
     }
 
     &__media-attach {
@@ -36,7 +36,7 @@
         cursor: pointer;
         display: flex;
         align-items: center;
-        fill: #a8b2b9;
+        fill: $color-fill-icon;
     }
 
     &__send-message {

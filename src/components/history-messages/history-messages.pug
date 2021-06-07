@@ -1,9 +1,9 @@
 include ../avatar/avatar
 
 mixin history-messages(img, name, message, time, status, owner)
-    -var margin = owner === "in" ? 'right' : 'left'
+    -var margin = owner === "in" ? "right" : "left"
 
-    section(class=`msg-item ${owner === "in" ? 'message-in' : 'message-out' }`)
+    section(class=`msg-item ${owner === "in" ? "message-in" : "message-out" }`)
         +avatar(img, margin)
         .msg-item__name= name
         .msg-item__message= message

@@ -2,13 +2,13 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-family-text;
     color: rgba(0, 0, 0, 0.9);
     display: grid;
 
     &__avatar {
         @include avatar(50px);
-        margin: 0px 10px 0px 10px;
+        margin: 0px 10px;
         grid-area: avatar;
     }
 
@@ -17,7 +17,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-family: 'Yeseva One', arial, sans-serif;
+        font-family: $font-family-h;
         font-size: 1.1rem;
     }
 

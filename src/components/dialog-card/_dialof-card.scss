@@ -2,7 +2,7 @@
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $font-family-text;
     color: rgba(0, 0, 0, 0.9);
     display: grid;
     grid-template-columns: auto;
@@ -13,15 +13,14 @@
     cursor: pointer;
 
     &:hover {
-        // box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
-        background-color: #EDEEF0;
+        background-color: $color-hover-dialog;
     }
 
     &_is-active {
         box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
         position: sticky;
         top: 98px;
-        background-color: #f0f3f6;
+        background-color: $color-active-dialog;
     }
 
     &__name {
@@ -29,7 +28,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-family: 'Yeseva One', arial, sans-serif;
+        font-family: $font-family-h;
         font-size: 1.1rem;
     }
 
@@ -50,7 +49,6 @@
         grid-area: status;
         display: flex;
         justify-content: center;
-
     }
 
     &__notifications {

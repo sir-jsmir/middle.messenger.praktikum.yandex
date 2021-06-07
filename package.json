@@ -2,13 +2,12 @@
   "name": "middle_messenger_praktikum_yandex",
   "version": "1.0.0",
   "description": "---",
-  "type": "module",
+  "type": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.pug --out-dir dist --no-cache",
-    "dev2": "parcel dev --parallel watch start",
+    "dev": "parcel ./src/index.pug --no-cache",
     "build": "parcel build ./src/index.pug  --no-minify",
-    "start": "parcel build ./src/index.pug --no-minify && node server.js "
+    "start": "parcel build ./src/index.pug --no-minify && node ./server.js "
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,14 @@
-.input-form {
-    position: sticky;
-    bottom: 10px;
+.footer {
+	position: sticky;
+	bottom: 10px;
+}
+
+.chat {
+	display: grid;
+	grid-template-columns: 350px auto;
+}
+
+.message-form {
+	width: 100%;
+	padding: 0px;
 }

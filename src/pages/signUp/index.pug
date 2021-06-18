@@ -1,24 +1,14 @@
-extends  ../../layout/main/_index
-include ../../components/input/input
-include ../../components/button/button
-include ../../components/link/link
-include ../../components/text-link/text-link
-include ../../components/title-auth/title-auth
-
-block content
-    header.auth
-        +title-auth("Регистрация", "войти")
-    main.content
-        form.form
-            +input("email", "email", _, "Почта", "Введите почту")
-            +input("text", "login", _, "Логин", "Введите логин")
-            +input("text", "firstName", _, "Имя", "Введите имя")
-            +input("text", "lastName", _, "Фамилия", "Введите фамилию")
-            +input("tel", "phone",_, "Телефон", "Введите телефон")
-            +input("password", "password",  _, "Пароль", "Введите пароль")
-            +input("password", "password2", _, "Повторите пароль", "Введите пароль")
-            .group-elements
-                +button("Зарегистрироваться", "submit")
-            .error
-        footer
-    script(src="./index.js")
+doctype html
+html(lang="ru")  
+    head
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="description", content="Chat")
+        link(href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="~/layout/main/_index.scss")
+        link(rel="stylesheet" href="~/style.scss")
+        title Chat
+    body
+        div#app
+        script(src='./index.ts', async=true)

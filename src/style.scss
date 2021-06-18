@@ -21,115 +21,115 @@
 
 
 .sidebar {
-    min-height: 100vh;
-    background-color: #f0f3f6;
+	min-height: 100vh;
+	background-color: #f0f3f6;
 
-    &__content {
-        position: absolute;
-        overflow-y: scroll;
-        height: 100%;
-        width: 350px;
+	&__content {
+		position: absolute;
+		overflow-y: scroll;
+		height: 100%;
+		width: 350px;
 
-        &::-webkit-scrollbar {
-            width: 8px;
-        }
+		&::-webkit-scrollbar {
+			width: 8px;
+		}
 
-        &::-webkit-scrollbar-thumb {
-            background-color: #a8b2b9;
-            // border-radius: 9em;
-        }
-    }
+		&::-webkit-scrollbar-thumb {
+			background-color: #a8b2b9;
+		}
+	}
 
-    .app-bar {
-        display: grid;
-        grid-template-columns: auto auto;
-        position: sticky;
-        top: 0px;
-        z-index: 1;
-        padding: 10px;
+	.app-bar {
+		display: grid;
+		grid-template-columns: auto auto;
+		position: sticky;
+		top: 0px;
+		z-index: 1;
+		padding: 10px;
 
-        &__setting-profile {
-            fill: #a8b2b9;
-            cursor: pointer;
-            // fill: #2196f3;
-            // text-align: center;
-        }
+		&__setting-profile {
+			fill: #a8b2b9;
+			cursor: pointer;
+		}
 
-        &__log-out {
-            fill: #a8b2b9;
-            text-align: right;
-            cursor: pointer;
-            // text-align: center;
-        }
-    }
+		&__log-out {
+			fill: #a8b2b9;
+			text-align: right;
+			cursor: pointer;
+		}
+	}
 }
 
 .content {
-    height: 100%;
-    background-color: #EDEEF0;
-    display: flex;
-    flex-direction: column;
+	height: 100%;
+	background-color: #EDEEF0;
+	display: flex;
+	flex-direction: column;
 
-    .msg {
-        flex: 1 1 auto;
-    }
+	.msg {
+		flex: 1 1 auto;
+	}
 }
 
 .status-message {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin: 0 auto;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin: 0 auto;
 }
 
 .is-sent {
-    background-color: $msg-sent-color;
+	background-color: $msg-sent-color;
 }
 
 .is-received {
-    background-color: $msg-received-color;
+	background-color: $msg-received-color;
 }
 
 .is-read {
-    background-color: $msg-read-color;
+	background-color: $msg-read-color;
 }
 
 .error {
-    text-align: center;
-    font-family: $font-family-text;
-    font-weight: bold;
-    color: $alarm-color;
+	font-family: $font-family-text;
+	font-weight: bold;
+	color: $alarm-color;
+	font-size: inherit;
 }
 
+
 .error-page {
-    margin: 0 auto;
-    text-align: center;
-    font-family: $font-family-h;
-    background-color: #EDEEF0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	margin: 0 auto;
+	text-align: center;
+	font-family: $font-family-h;
+	background-color: #EDEEF0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-    &__title {
-        font-size: 9rem;
-    }
+	&__title {
+		font-size: 9rem;
+	}
 
-    &__content {
-        font-size: 2.5rem;
-        margin: 20px 50px;
-
-    }
+	&__content {
+		font-size: 2.5rem;
+		margin: 20px 50px;
+	}
 }
 
 .start {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    a {
-        font-size: 2rem;
-    }
+	a {
+		font-size: 2rem;
+	}
+}
+
+#label {
+	align-self: center;
 }

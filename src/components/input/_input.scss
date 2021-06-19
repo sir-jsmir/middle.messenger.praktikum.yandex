@@ -1,20 +1,29 @@
 .input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 15px 0px;
-    font-family: $font-family-h;
+	display: grid;
+	margin: 15px 0px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 45px 15px;
+	font-family: $font-family-text;
 
+	input {
+		outline: none;
+		border: 0;
+		padding: 10px;
+		font-family: $font-family-text;
+		width: 100%;
+		border-radius: 5px;
+		box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
+		box-sizing: border-box;
+	}
+}
 
-    #label {}
+.focused {
+	background-color: red;
+}
 
-    input {
-        outline: none;
-        border: 0;
-        padding: 10px;
-        font-family: $font-family-text;
-        width: 43%;
-        border-radius: 5px;
-        box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
-    }
+.error-grid {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	padding-left: 10px;
+	font-size: $font-size-xs;
 }

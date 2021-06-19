@@ -11,7 +11,7 @@
         flex: 1;
         border: 0;
         outline: none;
-        font-family: "Open Sans", sans-serif;
+        font-family: $font-family-text;
         -webkit-tap-highlight-color: transparent;
         background: transparent;
     }
@@ -19,7 +19,7 @@
     &__button {
         border: 0;
         flex: 0 0 auto;
-        fill: #a8b2b9;
+        fill: $color-fill-icon;
         cursor: pointer;
         background: transparent;
 

@@ -1,5 +1,0 @@
-mixin title-auth(title1, title2)
-    -var link = title1 && title1.toLowerCase() === "регистрация" ? "signIn" : "signUp"
-    h1.title-auth= title1
-    a(href=`/pages/${link}/index.pug`).title-auth__sub= `или ${title2}`
-        

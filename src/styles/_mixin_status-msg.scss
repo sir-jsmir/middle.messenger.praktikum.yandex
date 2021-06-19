@@ -7,13 +7,13 @@
     }
 
     .is-sent {
-        background-color: #EC732E;
+        background-color: $msg-sent-color;
     }
 
     .is-received {
-        background-color: #ECC22E;
+        background-color: $msg-sent-color;
     }
 
     .is-read {
-        background-color: #82EC2E;
+        background-color: $msg-sent-color;
     }

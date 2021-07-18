@@ -1,6 +1,10 @@
 import {render} from 'pug';
 import Block from '../../utils/block';
 import {verificationSubmitValues} from '../../utils/verificationSubmitValues';
+import AuthApi from '../../api/authApi';
+import UserApi from '../../api/userApi';
+import router from '../../index';
+import * as namePage from '../../constants/namePages';
 
 type Events = {
     [key: string]: {tagEvent: string, callback: ((...args) => unknown)}
@@ -22,7 +26,7 @@ export default class Form extends Block {
                 tagEvent: 'form',
                 callback: (e) => {
                     e.preventDefault();
-                    this.validValues(e.target, this.props.page);
+                    this.submit(e);
                 },
             },
         };
@@ -32,10 +36,68 @@ export default class Form extends Block {
             events,
         });
     }
-    validValues(e: Event, pageName: string | unknown): void {
-        const result = verificationSubmitValues(e, pageName);
-        console.log('errors', result);
+
+    submit(e) {
+        const {page} = this.props;
+        const result = this.validValues(e.target, page);
+        switch (page) {
+            case namePage.PAGE_SIGN_IN:
+                this.isAuthUserIn(result);
+                break;
+            case namePage.PAGE_SIGN_UP:
+                this.isAuthUserUp(result);
+                break;
+            case namePage.PAGE_PASSWORD_CHANGE:
+                this.isChangePassword(result)
+                break;
+            case namePage.PAGE_PROFILE_SETTING:
+                this.isChangeUserProfile(result);
+                break;
+            default:
+                break;
+        }
+    };
+
+    isAuthUserUp(value): void {
+        new AuthApi().signUp(value)
+            .then((data) => {
+                const userInfo = JSON.parse(data.response);
+            });
     }
+    isAuthUserIn(value): void {
+        new AuthApi().signIn(value)
+            .then((data) => {
+                router.go('/chats');
+            })
+            .then(() => {
+                new AuthApi().getUserInfo()
+                    .then((result) => {
+                        const userInfo = JSON.parse(result.response);
+                    });
+            });
+    }
+
+    isChangeUserProfile(data): void {
+        new UserApi().changeUserProfile(data)
+            .then((data) => {
+                console.log(JSON.parse(data.response));
+                this.props.getUserInfo();
+                router.go('/chats');
+            })
+    }
+    isChangePassword(data): void {
+        delete data.passwordRepeat;
+        new UserApi().changeUserPassword(data)
+            .then((data) => {
+                console.log(JSON.parse(data.response));
+                router.go('/chats');
+            })
+    }
+    validValues(e: Event, pageName: string | unknown): {[x: string]: string} | undefined {
+        const result = verificationSubmitValues(e, pageName);
+        return result;
+    }
+
     render(): string {
         const {template} = this.props;
         return render(template);

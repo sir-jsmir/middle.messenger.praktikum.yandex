@@ -1,21 +1,15 @@
 import {render} from 'pug';
 import Block from '../../utils/block';
-
-type Props = {
-    title: string;
-    template: string;
-}
-
+import template from './page404.tmpl';
+import {PAGE_404} from '../../constants/namePages';
 export default class Page404 extends Block {
-    props: Props;
-    constructor(props: Props) {
-        super({...props});
+    constructor() {
+        document.title = PAGE_404;
+        const _template = template;
+
+        super({template: _template});
     }
-    componentDidMount(): HTMLElement {
-        const element = document.getElementById('app');
-        element?.appendChild(this.getContent());
-        return element as HTMLElement;
-    }
+
     render(): string {
         const {template} = this.props;
         return render(template);

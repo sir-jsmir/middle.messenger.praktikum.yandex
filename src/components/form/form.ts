@@ -80,7 +80,6 @@ export default class Form extends Block {
     isChangeUserProfile(data): void {
         new UserApi().changeUserProfile(data)
             .then((data) => {
-                console.log(JSON.parse(data.response));
                 this.props.getUserInfo();
                 router.go('/chats');
             })
@@ -89,7 +88,6 @@ export default class Form extends Block {
         delete data.passwordRepeat;
         new UserApi().changeUserPassword(data)
             .then((data) => {
-                console.log(JSON.parse(data.response));
                 router.go('/chats');
             })
     }

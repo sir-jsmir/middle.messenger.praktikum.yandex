@@ -40,9 +40,7 @@ class AuthAPI {
     }
 
     getUserInfo() {
-        const options = {
-        };
-        return authApi.get('/user', options);
+        return authApi.get('/user');
     }
 
     logout() {

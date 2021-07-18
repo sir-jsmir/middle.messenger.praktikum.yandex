@@ -75,13 +75,11 @@ export default class AppChat extends Block {
                                     new ChatsAPI().deleteUsersChat(result[0].id, id)
                                         .then(data => {
                                             const result = JSON.parse(data.response);
-                                            console.log(result);
                                         });
                                 } else {
                                     new ChatsAPI().addUsersChat(result[0].id, id)
                                         .then(data => {
                                             const result = JSON.parse(data.response);
-                                            console.log(result);
                                         });
                                 }
 

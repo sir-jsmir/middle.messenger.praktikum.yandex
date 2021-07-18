@@ -1,6 +1,5 @@
 export default `
 div(class='chat-item '+activeClass)
-    div = !{active}
     #avatar
     .chat-item__name= name
     .chat-item__message= message

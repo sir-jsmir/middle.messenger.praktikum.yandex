@@ -18,6 +18,7 @@ import AppChat from '../../components/appChat/appChat';
 import svgs from '../../../static/svg/*.svg';
 import WebSocketMessage from '../../api/webSocket';
 import HistoryMessagesList from '../../components/historyMessagesList';
+import router from '../../index';
 
 const formTmpl = `
 #message
@@ -115,13 +116,11 @@ export default class PageHome extends Block {
                                 result.forEach((user) => {
                                     this._usersChat[user.id] = {...user}
                                 })
-                                console.log(this._usersChat)
                             }).then(() => {
                                 return this.connectToChat(idChat);
                             }).then(({token}) => {
                                 return this.connectToServerSocket(this._userId, idChat, token);
                             })
-                        console.log('idChat', idChat)
                         for (let card in this._cardList) {
                             if (this._cardList[card].props.attribute['data-index'] === idChat) {
                                 this._cardList[card].setProps({
@@ -155,8 +154,6 @@ export default class PageHome extends Block {
                         click: {
                             tagEvent: '.input-form__send-message',
                             callback: () => {
-                                console.log('asd')
-                                console.log(this.socketMessage)
                                 if (this.message.length > 0) {
                                     this.sendMessage(this.message)
                                 }
@@ -222,12 +219,13 @@ export default class PageHome extends Block {
                 const result = JSON.parse(data.response);
                 let childrenCard = {};
                 result.forEach((el, id) => {
+                    const {last_message, avatar, title} = el;
                     childrenCard[`dialogCard${id}`] =
                         new DialogCard({
                             attribute: {'data-index': el.id},
-                            srcImg: el.avatar || images.avatar_4,
-                            name: el.title,
-                            message: el.last_message || 'Сообщений нет',
+                            srcImg: avatar || images.avatar_4,
+                            name: (last_message && (last_message.user.display_name || `${last_message.user.first_name} ${last_message.user.second_name}`)) || title,
+                            message: (last_message && last_message.content) || 'Сообщений нет',
                             time: '16:53',
                             status: 'received',
                             notifications: '',
@@ -245,7 +243,6 @@ export default class PageHome extends Block {
 
     loadingMessageList() {
         let messageList = {};
-        debugger
         this.socketMessage.forEach((message, index) => {
             const {chat_id, content, id, is_read, time, user_id} = message;
             const {avatar, second_name, first_name, display_name} = this._usersChat[user_id];
@@ -268,11 +265,8 @@ export default class PageHome extends Block {
     }
 
     fetchChatMessageList(data: []) {
-        console.log("data", data)
         this.socketMessage = Array.isArray(data) ? data : [...this.socketMessage, data];
-        console.log("data2", this.socketMessage)
         let messageList = {};
-        debugger
         this.socketMessage.forEach((message, index) => {
             const {chat_id, content, id, is_read, time, user_id} = message;
             const {avatar, second_name, first_name, display_name} = this._usersChat[user_id];
@@ -308,13 +302,11 @@ export default class PageHome extends Block {
                 result.forEach((user) => {
                     this._usersChat[user.id] = {...user}
                 })
-                console.log(this._usersChat)
             })
     }
 
     connectToServerSocket(userId: string, chatId: number, token) {
         if (userId && chatId && token) {
-            debugger
             new WebSocketMessage(userId, chatId, token, this.fetchChatMessageList.bind(this))
         }
     }
@@ -325,6 +317,9 @@ export default class PageHome extends Block {
         new AuthAPI().getUserInfo()
             .then((data) => {
                 const userInfo = JSON.parse(data.response);
+                if (userInfo.reason) {
+                    router.go('/');
+                }
                 this.props.children.avatarProfile.setProps({
                     name: userInfo.login,
                     srcImg: userInfo.avatar || images.avatar_1,

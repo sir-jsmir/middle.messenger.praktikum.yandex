@@ -23,8 +23,9 @@ export default class AppBar extends Block {
                 click: {
                     tagEvent: 'logout',
                     callback: () => {
+
+                        router.go('/');
                         new AuthAPI().logout();
-                        router.go('/')
                     },
                 },
             },

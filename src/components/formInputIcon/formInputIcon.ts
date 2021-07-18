@@ -8,7 +8,6 @@ export default class FormInputIcon extends Block {
     }
     render(): string {
         const {placeholder, error, srcIcon, value = ''} = this.props;
-        console.log(error)
         return render(template, {placeholder, srcIcon, error, value});
     }
 }

@@ -71,7 +71,6 @@ export default class PageHome extends Block {
             name: 'addChat',
             value: '',
             srcIcon: svgs.add_24dp,
-            //dataInput: '',
             events: {
                 input: {
                     tagEvent: 'input',

@@ -4,7 +4,7 @@
   "description": "---",
   "main": "index.ts",
   "scripts": {
-    "dev": "parcel ./src/index2.pug --no-cache --open",
+    "dev": "parcel ./src/index.pug --no-cache --open",
     "build": "parcel build ./src/index.pug  --no-minify",
     "start": "parcel build ./src/index.pug --no-minify && node ./server.js ",
     "test": "mocha"

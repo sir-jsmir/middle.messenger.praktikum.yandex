@@ -40,7 +40,6 @@ class AuthAPI {
     }
 
     getUserInfo() {
-        //this.userInfo = this.userInfo ?? await authApi.get('/user');
         const options = {
         };
         return authApi.get('/user', options);

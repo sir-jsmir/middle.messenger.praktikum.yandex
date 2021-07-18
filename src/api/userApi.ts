@@ -51,7 +51,6 @@ class UserApi {
         return userApi.put('/password', options);
     }
     searchUser(data) {
-        //this.userInfo = this.userInfo ?? await authApi.get('/user');
         const options = {
             data: JSON.stringify({login: data}),
             headers: {

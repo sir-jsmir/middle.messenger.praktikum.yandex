@@ -35,7 +35,6 @@ export const verificationSubmitValues = (form, page) => {
             break;
         case PAGE_PASSWORD_CHANGE:
             const error = checkEqualityPasswords(values.password, values.passwordRepeat);
-            //return {...values, passwordRepeat: {value: '', messageError: error}}
             return {...values}
             break;
         case PAGE_PROFILE_SETTING:
@@ -43,11 +42,9 @@ export const verificationSubmitValues = (form, page) => {
             break;
         case PAGE_SIGN_UP:
             const error = checkEqualityPasswords(values.password, values.passwordRepeat);
-            //return {...resultValid, passwordRepeat: {value: '', messageError: error}}
             return {...values}
             break;
         case PAGE_SIGN_IN:
-            //return {...resultValid, passwordRepeat: {value: '', messageError: error}}
             return {...values}
             break;
         default:

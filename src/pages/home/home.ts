@@ -14,7 +14,7 @@ import template from './home.tmpl';
 import InputForm from '../../components/input-form';
 import Form from '../../components/form';
 import DialogCardList from '../../components/dialogCardList';
-import AppChat from '../../components/appChat/appChat';
+import AppChat from '../../components/appChat';
 import svgs from '../../../static/svg/*.svg';
 import WebSocketMessage from '../../api/webSocket';
 import HistoryMessagesList from '../../components/historyMessagesList';
@@ -90,7 +90,9 @@ export default class PageHome extends Block {
                                     const result = JSON.parse(data.response);
                                     this.value: '';
                                     this.fetchChatsList();
-                                })
+                                }).catch((err) => {
+                                    console.error(err);
+                                });
                         } else {
                             this.setProps({
                                 error: true,
@@ -208,9 +210,9 @@ export default class PageHome extends Block {
             .then(() => {
                 this.fetchChatsList();
             })
-            .then(() => {
-
-            })
+            .catch((err) => {
+                console.error(err);
+            });
     }
 
     fetchChatsList() {
@@ -238,6 +240,8 @@ export default class PageHome extends Block {
                     children: {...dialogCardList.props.children, ...childrenCard},
                     dialogCardListCount: result.length,
                 });
+            }).catch((err) => {
+                console.error(err);
             });
     }
 
@@ -292,7 +296,9 @@ export default class PageHome extends Block {
         return new ChatsApi().getChatUsersToken(chatId)
             .then((data) => {
                 return JSON.parse(data.response);
-            })
+            }).catch((err) => {
+                console.error(err);
+            });
     }
 
     fetchUsersChat(chatId: number) {
@@ -302,7 +308,9 @@ export default class PageHome extends Block {
                 result.forEach((user) => {
                     this._usersChat[user.id] = {...user}
                 })
-            })
+            }).catch((err) => {
+                console.log(err);
+            });
     }
 
     connectToServerSocket(userId: string, chatId: number, token) {
@@ -324,6 +332,8 @@ export default class PageHome extends Block {
                     name: userInfo.login,
                     srcImg: userInfo.avatar || images.avatar_1,
                 });
+            }).catch((err) => {
+                console.error(err);
             });
         const {template} = this.props;
         return render(template);

@@ -36,4 +36,3 @@ export default class Profile extends Block {
         });
     }
 }
-

@@ -3,7 +3,7 @@ import Block from '../../utils/block';
 import template from './historyMessagesList.tmpl';
 
 export default class HistoryMessagesList extends Block {
-    constructor(props?) {
+    constructor(props = {}) {
         super({
             ...props,
             status: '',

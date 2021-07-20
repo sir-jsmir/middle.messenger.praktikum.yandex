@@ -31,6 +31,7 @@ function queryStringify(data): string {
 }
 
 export default class HTTPTransport {
+    _host: string;
     constructor(props: string) {
         this._host = props;
     }
@@ -63,7 +64,22 @@ export default class HTTPTransport {
             xhr.withCredentials = true;
             xhr.open(method, isGet && Boolean(data) ? url + queryStringify(data) : url);
             xhr.onload = function () {
-                resolve(xhr);
+                if (xhr.status >= 400) {
+                    reject(xhr.response);
+                    return;
+                }
+                if (xhr.status >= 500) {
+                    reject(xhr.response);
+                    return;
+                }
+                if (xhr.status < 500) {
+                    reject(xhr.response);
+                    return;
+                }
+                if (xhr.status !== 200) {
+                    reject(JSON.parse(xhr.response));
+                }
+                resolve(xhr.response);
             };
             xhr.timeout = timeout;
             xhr.onabort = reject;

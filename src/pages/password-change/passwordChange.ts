@@ -66,7 +66,7 @@ export default class PagePasswordChange extends Block {
                     link: '/profile',
                 }),
             },
-        }),
+        });
         super({
             template: _template,
             children: {
@@ -74,9 +74,6 @@ export default class PagePasswordChange extends Block {
                 form: _form,
             },
         });
-    }
-
-    componentDidMount() {
     }
 
     render(): string {

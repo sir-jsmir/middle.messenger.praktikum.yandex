@@ -72,18 +72,17 @@ export default class PageSignIn extends Block {
         });
     }
 
-    componentDidMount(): HTMLElement {
-    }
-
     render(): string {
         const {template} = this.props;
-        console.log(document.cookie)
+
         new AuthApi().getUserInfo()
             .then((result) => {
                 const userInfo = JSON.parse(result.response);
                 if (!userInfo.reason) {
                     router.go('/chats');
                 }
+            }).catch((er) => {
+                console.error(er);
             });
         return render(template);
     }

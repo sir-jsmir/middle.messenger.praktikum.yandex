@@ -38,7 +38,8 @@ export class Router {
     _onRoute(pathname: string): void {
         const route = this.getRoute(pathname);
         if (!route) {
-            return;
+            this.go('/404');
+            window.location.href = '/404';
         }
         if (this._currentRoute) {
             this._currentRoute.leave();

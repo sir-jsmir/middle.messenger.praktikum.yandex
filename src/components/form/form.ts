@@ -62,6 +62,8 @@ export default class Form extends Block {
         new AuthApi().signUp(value)
             .then((data) => {
                 const userInfo = JSON.parse(data.response);
+            }).catch((err) => {
+                console.error(err);
             });
     }
     isAuthUserIn(value): void {
@@ -74,6 +76,8 @@ export default class Form extends Block {
                     .then((result) => {
                         const userInfo = JSON.parse(result.response);
                     });
+            }).catch((err) => {
+                console.error(err);
             });
     }
 
@@ -82,14 +86,18 @@ export default class Form extends Block {
             .then((data) => {
                 this.props.getUserInfo();
                 router.go('/chats');
-            })
+            }).catch((err) => {
+                console.error(err);
+            });
     }
     isChangePassword(data): void {
         delete data.passwordRepeat;
         new UserApi().changeUserPassword(data)
             .then((data) => {
                 router.go('/chats');
-            })
+            }).catch((err) => {
+                console.error(err);
+            });
     }
     validValues(e: Event, pageName: string | unknown): {[x: string]: string} | undefined {
         const result = verificationSubmitValues(e, pageName);

@@ -110,9 +110,6 @@ export default class PageSignUp extends Block {
         });
     }
 
-    componentDidMount(): HTMLElement {
-    }
-
     render(): string {
         const {template} = this.props;
         return render(template);

@@ -1,20 +1,22 @@
-//import './style.scss';
-//import {getFormData} from './utils/verificationSubmitValues';
+import Router from '../src/utils/router';
+import PageSignIn from '../src/pages/signIn';
+import PageSignUp from '../src/pages/signUp';
+import PageHome from './pages/home/';
+import PageProfile from './pages/profile';
+import PagePasswordChange from './pages/password-change';
+import Page404 from './pages/404-page';
+import Page500 from './pages/500-page';
 
-//window.onload = () => {
-//    const form = document.querySelector('.form');
-//    const error = document.querySelector('.error');
-//    form?.addEventListener('submit', (e) => {
-//        e.preventDefault();
-//        const result = getFormData(form);
-//        console.log(result);
-//        debugger
-//        const {password, password2} = result;
-//        if (password === password2) {
-//            window.location.href = '../home/index.html';
-//        } else {
-//            document.querySelector('.error').textContent = 'пароли не верны';
-//            console.log('пароли не верны');
-//        }
-//    })
-//};
+const router = new Router('#app');
+
+router
+    .use('/signup', PageSignUp)
+    .use('/chats', PageHome)
+    .use('/profile', PageProfile)
+    .use('/password-change', PagePasswordChange)
+    .use('/404', Page404)
+    .use('/500', Page500)
+    .use('/', PageSignIn)
+    .start();
+
+export default router;

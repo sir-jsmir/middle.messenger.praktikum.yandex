@@ -12,7 +12,7 @@ export const validation = (value: string, type: string): Record<string, string> 
         case 'tel':
             return telVerification(value);
         default:
-            return {value: '', messageError: ''};
+            return {value, messageError: ''};
     }
 };
 

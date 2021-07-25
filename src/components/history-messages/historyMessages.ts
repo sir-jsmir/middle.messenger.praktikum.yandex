@@ -16,7 +16,7 @@ type Props = {
 export default class HistoryMessages extends Block {
     constructor(props: Props) {
         const {srcImg, margin} = props;
-        const avatar = new Avatar({srcImg, margin}).getContent();
+        const avatar = new Avatar({srcImg, margin});
         super({children: {avatar}, ...props});
     }
     render(): string {

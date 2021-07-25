@@ -3,7 +3,6 @@
 
 @import "./components/avatar/avatar";
 @import "./components/dialog-card/dialof-card";
-@import "./components/search-form/search-form";
 @import "./components/history-messages/history-messages";
 @import "./components/input-form/input-form";
 @import "./components/profile/profile";
@@ -12,6 +11,10 @@
 @import "./components/link/link";
 @import "./components/text-link/text-link";
 @import "./components/title-auth/title-auth";
+@import "./components/appBar/app-bar";
+@import "./components/iconLink/iconLink";
+@import "./components/appChat/appChat";
+@import "./components/formInputIcon/formInputIcon";
 
 @import "./pages/home/home";
 @import "./pages/profile/profile";
@@ -29,6 +32,8 @@
 		overflow-y: scroll;
 		height: 100%;
 		width: 350px;
+		padding: 20px;
+		box-sizing: border-box;
 
 		&::-webkit-scrollbar {
 			width: 8px;
@@ -36,26 +41,6 @@
 
 		&::-webkit-scrollbar-thumb {
 			background-color: #a8b2b9;
-		}
-	}
-
-	.app-bar {
-		display: grid;
-		grid-template-columns: auto auto;
-		position: sticky;
-		top: 0px;
-		z-index: 1;
-		padding: 10px;
-
-		&__setting-profile {
-			fill: #a8b2b9;
-			cursor: pointer;
-		}
-
-		&__log-out {
-			fill: #a8b2b9;
-			text-align: right;
-			cursor: pointer;
 		}
 	}
 }
@@ -132,4 +117,8 @@
 
 #label {
 	align-self: center;
+}
+
+ul {
+	list-style-type: none;
 }

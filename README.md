@@ -1,23 +1,26 @@
 ### APP CHAT
 
 ## Pull request
-Ссылка на pull request: https://github.com/sir-jsmir/middle.messenger.praktikum.yandex/pull/5
+Ссылка на pull request: https://github.com/sir-jsmir/middle.messenger.praktikum.yandex/pull/8
+
+## Heroku
+https://salty-reaches-31022.herokuapp.com/
+
+## Netlify
+https://sleepy-shaw-e2e55f.netlify.app/
 
 ## Figma
 https://www.figma.com/file/PbkHchYQJeg6BJoJJmR2mr/Untitled?node-id=50%3A2
 
 ## Netlify
-https://sleepy-shaw-e2e55f.netlify.app/pages/signin/
+https://sleepy-shaw-e2e55f.netlify.app/
 
+## APP CHAT version 4:
+- Добавлен WebSocket.
+- Настроена Docker-сборка статического приложения.
+- Размещен в Heroku проект с Docker-сборкой.
+- Проект собирается при помощи Webpack.
 
-## APP CHAT version 2:
-- Подключён TypeScript.
-- Добавлен класс для работы с запросами.
-- Добавлены ESLint, Stylelint.
-- Добавлен компонентный подход.
-- Добавлен класс для работы с запросами.
-- Проект собирается при помощи Parcel.
-- У всех форм есть валидация на focus, blur и submit.
 
 
 ## Установка

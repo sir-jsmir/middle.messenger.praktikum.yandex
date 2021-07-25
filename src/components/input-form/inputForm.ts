@@ -43,7 +43,6 @@ export default class InputForm extends Block {
     }
     render(): string {
         const {_value} = this.props;
-        debugger
         return render(template, {_value});
     }
 }

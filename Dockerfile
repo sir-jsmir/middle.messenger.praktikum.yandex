@@ -1,5 +1,5 @@
-FROM node:12
-WORKDIR /app
+FROM ubuntu:18.04
+WORKDIR /var/www
 COPY ./ ./
 RUN npm install 
 EXPOSE 3000

@@ -6,7 +6,7 @@
   "scripts": {
     "devParcel": "parcel ./src/index.pug --no-cache --open",
     "dev": "webpack serve --mode development &&  webpack --watch",
-    "build": "webpack --mode productions",
+    "build": "webpack --mode production",
     "start": "webpack --mode production && node ./server.js ",
     "test": "mocha"
   },

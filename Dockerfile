@@ -1,8 +1,6 @@
-FROM ubuntu:18.04 
-WORKDIR /app
+FROM node:16
+WORKDIR /var/www
 COPY ["package.json", "./"]
 RUN npm install 
-COPY server.js ./
-COPY . .
-RUN npm run build
+COPY .  .
 CMD [ "node", "./server.js" ]

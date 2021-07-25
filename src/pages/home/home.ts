@@ -14,7 +14,6 @@ import InputForm from '../../components/input-form';
 import Form from '../../components/form';
 import DialogCardList from '../../components/dialogCardList';
 import AppChat from '../../components/appChat';
-//import svgs from './static/../../../../static/svg/*.svg';
 import search from '../../../static/svg/search_24dp.svg';
 import addChat from '../../../static/svg/add_24dp.svg';
 import images from '../../../static/img/avatar_1.jpg';
@@ -127,9 +126,6 @@ export default class PageHome extends Block {
                                     const a = snakeToCamel(result[i]);
                                     this._usersChat[result[i].id] = {...a};
                                 }
-                                //result.forEach((user) => {
-                                //    const a = snakeToCamel(user);  
-                                //});
                             }).then(() => {
                                 return this.connectToChat(idChat);
                             }).then(({token}) => {
@@ -214,7 +210,6 @@ export default class PageHome extends Block {
             });
     }
     setValueInput(value: string) {
-        debugger
         this.messageInChat = value;
     }
     fetchChatsList() {
@@ -236,20 +231,6 @@ export default class PageHome extends Block {
                             active: false,
                         });
                 }
-                //result.forEach((el, index) => {
-                //    const {last_message, avatar, title, id} = el;
-                //    childrenCard[`dialogCard${index}`] =
-                //        new DialogCard({
-                //            attribute: {'data-index': id},
-                //            srcImg: avatar || images,
-                //            name: (last_message && (last_message.user.display_name || `${last_message.user.first_name} ${last_message.user.second_name}`)) || title,
-                //            message: (last_message && last_message.content) || 'Сообщений нет',
-                //            time: '16:53',
-                //            status: 'received',
-                //            notifications: '',
-                //            active: false,
-                //        });
-                //});
                 this._cardList = childrenCard;
                 const dialogCardList = this.props.children?.dialogCardList;
                 dialogCardList.setProps({

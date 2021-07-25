@@ -4,9 +4,9 @@
   "description": "---",
   "main": "index.ts",
   "scripts": {
-    "dev2": "parcel ./src/index.pug --no-cache --open",
+    "devParcel": "parcel ./src/index.pug --no-cache --open",
     "dev": "webpack serve --mode development &&  webpack --watch",
-    "build": "webpack --mode production && node ./server.js",
+    "build": "webpack --mode productions",
     "start": "webpack --mode production && node ./server.js ",
     "test": "mocha"
   },

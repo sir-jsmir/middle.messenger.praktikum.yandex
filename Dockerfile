@@ -1,6 +1,7 @@
-FROM node:16
+FROM node:12
 WORKDIR /var/www
 COPY ["package.json", "./"]
 RUN npm install 
 COPY .  .
-CMD [ "node", "./server.js" ]
+EXPOSE 3000
+CMD npm run start

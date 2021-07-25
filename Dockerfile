@@ -1,6 +1,8 @@
-FROM ubuntu:18.04
-WORKDIR /var/www
-COPY ./ ./
+FROM ubuntu:18.04 
+WORKDIR /app
+COPY ["package.json", "./"]
 RUN npm install 
-EXPOSE 3000
-CMD npm run start
+COPY server.js ./
+COPY . .
+RUN npm run build
+CMD [ "node", "./server.js" ]

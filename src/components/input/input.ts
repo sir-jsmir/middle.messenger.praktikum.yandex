@@ -16,7 +16,6 @@ type Props = {
 }
 
 export default class Input extends Block {
-    props: Props;
     constructor(props: Props) {
         const events = {
             blur: {

@@ -16,23 +16,23 @@ export const validation = (value: string, type: string): Record<string, string> 
     }
 };
 
-const passwordVerification = (value) => {
+const passwordVerification = (value: string) => {
     const pattern = /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,}/g;
     const result = value.match(pattern);
     const error = result ? '' : ERROR_PASSWORD;
     return {value: value, messageError: error};
 };
-const textVerification = (value) => {
+const textVerification = (value: string) => {
     const error = value.length > 2 ? '' : ERROR_TEXT;
     return {value: value, messageError: error};
 };
-const emailVerification = (value) => {
+const emailVerification = (value: string) => {
     const pattern = /[^@]+@[a-z]+(\.[a-z]+)/g;
     const result = value.match(pattern);
     const error = result ? '' : ERROR_EMAIL;
     return {value: value, messageError: error};
 };
-const telVerification = (value) => {
+const telVerification = (value: string) => {
     const pattern = /(?=.*[0-9]){5,}/g;
     const result = value.match(pattern);
     const error = result ? '' : ERROR_TEL;

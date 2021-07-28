@@ -16,7 +16,7 @@
 	}
 
 	&_is-active {
-		box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgb(0 0 0 / 10%);
+		box-shadow: -5px -2px 12px 0 #fff, 5px 7px 25px 0 rgba(0, 0, 0, 0.1);
 		position: sticky;
 		top: 98px;
 		background-color: $color-active-dialog;

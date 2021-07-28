@@ -1,26 +1,10 @@
 import HTTPTransport from '../api/HTTPTransport';
-import {snakeToCamel, camelToSnake} from '../utils/snakeCamel';
-
 const host = 'https://ya-praktikum.tech/api/v2/chats';
 
 const chatsApi = new HTTPTransport(host);
 
-type userRequest = {
-    firstName: string,
-    secondName: string,
-    displayName: string,
-    login: string,
-    email: string,
-    phone: string,
-}
-
-type changePasswordRequest = {
-    oldPassword: string,
-    newPassword: string,
-}
-
 class ChatsApi {
-    private userInfo: XMLHttpRequest | string | null = null;
+    // private userInfo: XMLHttpRequest | string | null = null;
 
     getChats() {
         const options = {

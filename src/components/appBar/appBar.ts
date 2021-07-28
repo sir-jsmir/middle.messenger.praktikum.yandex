@@ -2,23 +2,22 @@ import {render} from 'pug';
 import Block from '../../utils/block';
 import IconLink from '../iconLink';
 import template from './appBar.tmpl';
-import foo from '../../../static/svg/*.svg';
+import settingsIcon from '../../../static/svg/settings_24dp.svg';
+import logoutIcon from '../../../static/svg/logout_24dp.svg';
 import AuthAPI from '../../api/authApi';
 import router from '../../index';
 
 export default class AppBar extends Block {
     constructor() {
-        const {settings_24dp, logout_24dp} = foo;
-
         const profileIcon = new IconLink({
             className: 'profile',
-            srcIcon: settings_24dp,
+            srcIcon: settingsIcon,
             link: '/profile',
         });
 
         const logout = new IconLink({
             className: 'logout',
-            srcIcon: logout_24dp,
+            srcIcon: logoutIcon,
             events: {
                 click: {
                     tagEvent: 'logout',

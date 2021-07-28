@@ -1,11 +1,13 @@
-import svgs from '../../../static/svg/*.svg';
+import icon from '../../../static/svg/icon_emoji_24dp.svg';
+import attach from '../../../static/svg/attach_file_24dp.svg';
+import send from '../../../static/svg/send_24dp.svg';
 export default `
 .input-form__message 
-    input(type="text" placeholder="Написать сообщение")
+    input(type="text" value= _value placeholder="Написать сообщение")
 .input-form__icon-emoji
-    img(src="${svgs.icon_emoji_24dp}")
+    img(src="${icon}")
 .input-form__media-attach
-    img(src="${svgs.attach_file_24dp}")
+    img(src="${attach}")
 .input-form__send-message
-    img(src="${svgs.send_24dp}")
+    img(src="${send}")
 `;

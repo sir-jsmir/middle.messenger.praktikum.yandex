@@ -1,12 +1,12 @@
-import foo from '../../../static/svg/*.svg';
+import add from '../../../static/svg/add_24dp.svg';
 export default `
 div(class='app-chat__form-add-user '+(open ? 'visible' : 'hidden'))
     input(class='app-chat__input' placeholder='Введите логин')
-    img(class='icon-add-user' src='${foo.add_24dp}')
+    img(class='icon-add-user' src='${add}')
 #addUser
 div(class='app-chat__form-delete-user '+(openDelete ? 'visible' : 'hidden'))
     input(class='app-chat__input' placeholder='Введите логин')
-    img(class='icon-add-user' src='${foo.add_24dp}')
+    img(class='icon-add-user' src='${add}')
 #deleteUser
 #deleteChat
 `;

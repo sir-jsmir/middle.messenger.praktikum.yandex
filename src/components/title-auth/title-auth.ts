@@ -14,7 +14,7 @@ export default class TitleAuth extends Block {
         const events = {
             click: {
                 tagEvent: '.title-auth__sub',
-                callback: (e: Event) => {
+                callback: () => {
                     router.go(props.link);
                 },
             },

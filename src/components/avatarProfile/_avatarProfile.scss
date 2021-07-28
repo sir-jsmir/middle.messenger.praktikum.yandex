@@ -1,5 +1,3 @@
-@import "./styles/mixin_avatar";
-
 .chat-item__avatar {
 	grid-area: avatar;
 
@@ -11,7 +9,12 @@
 		margin-right: 10px;
 	}
 
-	@include avatar(50px);
+	img {
+		width: 50px;
+		border-radius: 20%;
+		height: 50px;
+		object-fit: cover;
+	}
 }
 
 .profile-avatar {

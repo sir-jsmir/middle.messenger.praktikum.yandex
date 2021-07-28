@@ -21,14 +21,13 @@ form
 `;
 export default class PageSignIn extends Block {
     constructor(props: PropsPage) {
-        const _template = template;
         document.title = PAGE_SIGN_IN;
-
+        const _template = template;
         const _titleAuth = new TitleAuth({
             title1: 'Вход',
             title2: 'регистрация',
             link: '/signup',
-        }),
+        });
 
         const _form = new Form({
             page: PAGE_SIGN_IN,
@@ -74,7 +73,6 @@ export default class PageSignIn extends Block {
 
     render(): string {
         const {template} = this.props;
-
         new AuthApi().getUserInfo()
             .then((result) => {
                 const userInfo = JSON.parse(result.response);

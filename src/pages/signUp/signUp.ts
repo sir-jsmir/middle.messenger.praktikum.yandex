@@ -1,6 +1,5 @@
 import Block from '../../utils/block';
 import {render} from 'pug';
-import {PropsPage} from '../../constants/types';
 import Button from '../../components/button';
 import TitleAuth from '../../components/title-auth';
 import Input from '../../components/input';
@@ -21,18 +20,19 @@ form
         #button
     .error
 `;
-
+export type Indexed<T = unknown> = {
+    [key: string]: T;
+};
 
 export default class PageSignUp extends Block {
-    constructor(props: PropsPage) {
-        const _template = template;
+    constructor() {
         document.title = PAGE_SIGN_UP;
 
         const _titleAuth = new TitleAuth({
             title1: 'Регистрация',
             title2: 'вход',
             link: '/',
-        }),
+        });
 
         const _form = new Form({
             page: PAGE_SIGN_UP,
@@ -102,7 +102,6 @@ export default class PageSignUp extends Block {
         });
 
         super({
-            template: _template,
             children: {
                 titleAuth: _titleAuth,
                 form: _form,
@@ -111,7 +110,6 @@ export default class PageSignUp extends Block {
     }
 
     render(): string {
-        const {template} = this.props;
         return render(template);
     }
 }

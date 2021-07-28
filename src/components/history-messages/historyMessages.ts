@@ -6,10 +6,10 @@ import template from './historyMessages.tmpl';
 type Props = {
     srcImg: string;
     margin?: 'right' | 'left',
-    name: string;
-    message: string;
-    time: string;
-    status: string;
+    name: string | number;
+    message: string | number;
+    time: string | number;
+    status: string | number;
     owner: string;
 }
 

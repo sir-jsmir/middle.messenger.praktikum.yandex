@@ -2,7 +2,7 @@ import Block from '../block';
 
 export class Route {
     _pathname: string;
-    _blockClass: Block;
+    _blockClass: any;
     _block: Block | null;
     _props: {[key: string]: unknown};
 
@@ -33,10 +33,10 @@ export class Route {
     render(): void {
         if (!this._block) {
             this._block = new this._blockClass();
-            this._block.show(this._props.rootQuery);
+            this._block?.show(this._props.rootQuery = '#app');
             return;
         }
 
-        this._block.show(this._props.rootQuery);
+        this._block.show(this._props.rootQuery = '#app');
     }
 }

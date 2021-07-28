@@ -12,8 +12,8 @@ describe('Checking the transitions at Route', () => {
         </html>`,
         {url: 'http://localhost'}
     );
-
-    global.window = window;
+    const windowContext: any = window;
+    global.window = windowContext;
     global.document = window.document;
 
     const router = new Router('#app');

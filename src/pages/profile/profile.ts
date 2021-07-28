@@ -1,6 +1,5 @@
 import Block from '../../utils/block';
 import {render} from 'pug';
-import {PropsPage} from '../../constants/types';
 import Button from '../../components/button';
 import Input from '../../components/input';
 import Link from '../../components/link';
@@ -8,10 +7,10 @@ import TextLink from '../../components/text-link/textLink';
 import template from './profile.tmpl';
 import Profile from '../../components/profile';
 import Form from '../../components/form';
-import images from '../../../static/img/*.jpg';
+import images from '../../../static/img/avatar_1.jpg';
 import {PAGE_PROFILE_SETTING} from '../../constants/namePages';
 import AuthAPI from '../../api/authApi';
-
+import {snakeToCamel} from '../../utils/snakeCamel';
 const formTmpl = `
 form
     #inputEmail
@@ -27,13 +26,15 @@ form
 `;
 
 export default class PageProfile extends Block {
+    _userName: string | unknown;
+
     constructor() {
         const _template = template;
         document.title = PAGE_PROFILE_SETTING;
 
         const _profile = new Profile({
             name: '',
-            srcImg: images.avatar_1,
+            srcImg: images,
         });
         const _form = new Form({
             page: PAGE_PROFILE_SETTING,
@@ -102,7 +103,7 @@ export default class PageProfile extends Block {
                     link: '/chats',
                 }),
             },
-        }),
+        });
 
         super({
             template: _template,
@@ -111,26 +112,29 @@ export default class PageProfile extends Block {
                 form: _form,
             },
         });
+        this._userName = '';
     }
     componentDidMount(): void {
-        this.getUserInfo()
+        this.getUserInfo();
     }
 
     getUserInfo() {
         new AuthAPI().getUserInfo()
             .then((data) => {
                 const userInfo = JSON.parse(data.response);
+                const info = snakeToCamel(userInfo);
                 const {
                     avatar,
-                    display_name,
+                    displayName,
                     email,
-                    first_name,
+                    firstName,
                     login,
                     phone,
-                    second_name,
-                } = userInfo;
+                    secondName,
+                } = info;
 
-                const {profile, form} = this.props.children;
+                const profile = this.props.children?.profile;
+                const form = this.props.children?.form;
                 const {
                     inputEmail,
                     inputLogin,
@@ -138,12 +142,12 @@ export default class PageProfile extends Block {
                     inputSecondName,
                     inputDisplayName,
                     inputPhone,
-                } = form.props.children;
+                } = form?.props.children;
                 this._userName = login;
 
-                profile.setProps({
+                profile?.setProps({
                     name: login,
-                    srcImg: avatar || images.avatar_1,
+                    srcImg: avatar || images,
                 });
                 inputEmail.setProps({
                     value: email,
@@ -152,13 +156,13 @@ export default class PageProfile extends Block {
                     value: login,
                 });
                 inputFirstName.setProps({
-                    value: first_name,
+                    value: firstName,
                 });
                 inputSecondName.setProps({
-                    value: second_name,
+                    value: secondName,
                 });
                 inputDisplayName.setProps({
-                    value: display_name,
+                    value: displayName,
                 });
                 inputPhone.setProps({
                     value: phone,
@@ -167,7 +171,6 @@ export default class PageProfile extends Block {
     }
 
     render(): string {
-        const {template} = this.props;
         return render(template);
     }
 }

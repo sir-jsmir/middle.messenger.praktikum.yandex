@@ -2,17 +2,27 @@ import {render} from 'pug';
 import Block from '../../utils/block';
 import IconLink from '../iconLink';
 import template from './appChat.tmpl';
-import foo from '../../../static/svg/*.svg';
+import add from '../../../static/svg/person_add_24dp.svg';
+import deleteIcon from '../../../static/svg/delete_outline_24dp.svg';
+import remove from '../../../static/svg/person_remove_24dp.svg';
 import ChatsAPI from '../../api/chatsApi';
 import UserApi from '../../api/userApi';
 
-export default class AppChat extends Block {
-    constructor(props) {
-        const {person_add_24dp, delete_outline_24dp, person_remove_24dp} = foo;
+export type PropsPage = {
+    id: () => any;
+    fetchChatsList: () => any;
+    children?: {[key: string]: any}[],
+};
 
+export default class AppChat extends Block {
+    value: string;
+    _props: PropsPage;
+    _id: () => any;
+    _fetchChatsList: () => any;
+    constructor(props: PropsPage) {
         const addUser = new IconLink({
             className: 'app-chat__add-user',
-            srcIcon: person_add_24dp,
+            srcIcon: add,
             events: {
                 click: {
                     tagEvent: 'app-chat__add-user',
@@ -27,7 +37,7 @@ export default class AppChat extends Block {
         });
         const deleteUser = new IconLink({
             className: 'app-chat__delete-user',
-            srcIcon: person_remove_24dp,
+            srcIcon: remove,
             events: {
                 click: {
                     tagEvent: 'app-chat__delete-user',
@@ -42,15 +52,17 @@ export default class AppChat extends Block {
         });
         const deleteChat = new IconLink({
             className: 'app-chat__delete-chat',
-            srcIcon: delete_outline_24dp,
+            srcIcon: deleteIcon,
             events: {
                 click: {
                     tagEvent: 'app-chat__delete-chat',
                     callback: () => {
-                        const id = this.props.id();
+                        console.log(this.props)
+                        const id = this._id();
                         new ChatsAPI().deleteChat(id)
-                            .then((data) => {
-                                this.props.fetchChatsList()
+                            .then(() => {
+                                this._fetchChatsList()
+                                console.log('dell')
                             });
                     },
                 },
@@ -59,8 +71,9 @@ export default class AppChat extends Block {
         const events = {
             input: {
                 tagEvent: 'input',
-                callback: (e) => {
-                    this.value = e.target.value;
+                callback: (e: Event) => {
+                    const element = e.target as HTMLInputElement;
+                    this.value = element.value;
                 }
             },
             click: {
@@ -70,19 +83,20 @@ export default class AppChat extends Block {
                         new UserApi().searchUser(this.value)
                             .then((data) => {
                                 const result = JSON.parse(data.response);
-                                const id = this.props.id();
+                                const id = this._id();
                                 if (this.props.openDelete) {
                                     new ChatsAPI().deleteUsersChat(result[0].id, id)
                                         .then(data => {
                                             const result = JSON.parse(data.response);
+                                            console.log(result)
                                         });
                                 } else {
                                     new ChatsAPI().addUsersChat(result[0].id, id)
                                         .then(data => {
                                             const result = JSON.parse(data.response);
+                                            console.log(result)
                                         });
                                 }
-
                             });
                     };
                 },
@@ -97,6 +111,8 @@ export default class AppChat extends Block {
             events,
             ...props,
         });
+        this._fetchChatsList = props.fetchChatsList;
+        this._id = props.id;
     }
     render(): string {
         const {open, openDelete} = this.props;

@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:12-alpine
 WORKDIR /var/www
 COPY ["package.json", "./"]
 COPY ./ ./

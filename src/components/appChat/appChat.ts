@@ -111,7 +111,6 @@ export default class AppChat extends Block {
             events,
             ...props,
         });
-        console.log(props)
         this._fetchChatsList = props.fetchChatsList;
         this._id = props.id;
     }

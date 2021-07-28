@@ -73,7 +73,6 @@ export default class PageSignIn extends Block {
 
     render(): string {
         const {template} = this.props;
-        console.log(typeof template)
         new AuthApi().getUserInfo()
             .then((result) => {
                 const userInfo = JSON.parse(result.response);
